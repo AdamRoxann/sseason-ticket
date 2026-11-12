@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@theme {
+    --color-olive: #29291b;
+    --color-cream: #f4ecd7;
+    --color-gold: #d7bd72;
+    --font-display: "Bebas Neue", Impact, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+
+:root {
+    color-scheme: dark;
+}
+
+html {
+    min-height: 100%;
+    background: #29291b;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Albert Sans", sans-serif;
+    color: #f4ecd7;
+    background-color: #29291b;
+    background-image:
+        linear-gradient(180deg, rgba(24, 25, 16, .48), rgba(24, 25, 16, .78)),
+        url("/images/background-image.jpeg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.form-input {
+    width: 100%;
+    border: 1px solid rgba(244, 236, 215, .2);
+    border-radius: .8rem;
+    background: rgba(0, 0, 0, .2);
+    color: #f4ecd7;
+    padding: .85rem 1rem;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #d7bd72;
+}
+
+/* Campaign banner carousel */
+.landing-carousel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(215, 189, 114, .32);
+    border-radius: 1.6rem;
+    background: rgba(31, 31, 21, .58);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+    isolation: isolate;
+}
+
+.landing-carousel__viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.landing-carousel__track {
+    display: flex;
+    width: 100%;
+    transition: transform .65s cubic-bezier(.22, .7, .25, 1);
+    will-change: transform;
+}
+
+.landing-carousel__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.landing-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1670 / 941;
+    object-fit: cover;
+}
+
+.landing-carousel__arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, .48);
+    border-radius: 999px;
+    background: rgba(28, 29, 19, .52);
+    color: #fff8e8;
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background .2s ease, border-color .2s ease, opacity .2s ease;
+}
+
+.landing-carousel__arrow:hover {
+    border-color: #e4cc8b;
+    background: rgba(28, 29, 19, .82);
+}
+
+.landing-carousel__arrow--prev { left: clamp(.75rem, 2.5vw, 1.5rem); }
+.landing-carousel__arrow--next { right: clamp(.75rem, 2.5vw, 1.5rem); }
+
+.landing-carousel__controls {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 1rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: .55rem;
+}
+
+.landing-carousel__dot {
+    width: .65rem;
+    height: .65rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .38);
+    cursor: pointer;
+    transition: width .25s ease, background .25s ease;
+}
+
+.landing-carousel__dot.is-active {
+    width: 1.8rem;
+    border-color: #f0dca5;
+    background: #f0dca5;
+}
+
+.landing-intro {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 5vw, 4rem);
+    text-align: center;
+}
+
+.landing-eyebrow {
+    margin-bottom: 1rem;
+    color: #e3cb8b;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+}
+
+.landing-title {
+    color: #f4ecd7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -.045em;
+}
+
+.landing-title span {
+    color: #e6c9a0;
+    font-style: italic;
+}
+
+.landing-description {
+    max-width: 760px;
+    margin: 1.5rem auto 0;
+    color: rgba(244, 236, 215, .84);
+    font-size: clamp(.95rem, 1.4vw, 1.08rem);
+    line-height: 1.9;
+}
+
+.landing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .85rem;
+    margin-top: 2rem;
+}
+
+.landing-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: .8rem 1.6rem;
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.landing-button:hover { transform: translateY(-2px); }
+
+.landing-button--primary {
+    border: 1px solid #e4cc8b;
+    background: #e4cc8b;
+    color: #29291b;
+}
+
+.landing-button--primary:hover { background: #f0dca5; }
+
+.landing-button--secondary {
+    border: 1px solid rgba(244, 236, 215, .5);
+    color: #f4ecd7;
+}
+
+.landing-button--secondary:hover {
+    border-color: #e4cc8b;
+    background: rgba(228, 204, 139, .1);
+}
+
+.landing-venue {
+    margin-top: 2rem;
+    color: #e4cc8b;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.landing-schedule {
+    margin-top: .4rem;
+    color: rgba(244, 236, 215, .62);
+    font-size: .8rem;
+}
+
+@media (max-width: 640px) {
+    body { background-attachment: scroll; }
+
+    .landing-carousel { border-radius: 1rem; }
+
+    .landing-carousel__slide img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    .landing-carousel__arrow {
+        width: 2.35rem;
+        height: 2.35rem;
+        font-size: 1.8rem;
+    }
+
+    .landing-carousel__controls { bottom: .65rem; }
+
+    .landing-intro { padding: 2.25rem 1.2rem; }
+
+    .landing-actions { flex-direction: column; }
+
+    .landing-button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-carousel__track { transition: none; }
+}

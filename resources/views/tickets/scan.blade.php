@@ -40,7 +40,7 @@
 
         <div class="p-5 sm:p-7">
             <h2 class="text-lg font-semibold text-cream">Or enter QR content manually</h2>
-            <form id="manual-scan-form" action="{{ route('scan.check-in') }}" method="POST" class="mt-4 space-y-3">
+            <form id="manual-scan-form" action="{{ route('admin.scan.check-in') }}" method="POST" class="mt-4 space-y-3">
                 @csrf
                 <label for="qr-value" class="block text-xs font-medium uppercase tracking-wider text-cream/55">Ticket QR URL or ticket code</label>
                 <input id="qr-value" name="qr_value" type="text" autocomplete="off" required maxlength="2048"

@@ -11,11 +11,15 @@
     <a href="{{ route('home') }}" class="font-display text-3xl tracking-tight">SS<span class="text-gold">.</span></a>
     <nav class="flex items-center gap-4 text-sm">
         @auth <a href="{{ route('tickets.index') }}" class="hover:text-gold">My Tickets</a>
-        {{-- <a href="{{ route('scan.index') }}" class="hover:text-gold">Scan / Check-in</a> --}}
+        @if(auth()->user()->is_admin)
+            <a href="{{ route('admin.dashboard') }}" class="hover:text-gold">Admin</a>
+            <a href="{{ route('admin.events') }}" class="hover:text-gold">Manage Events & Tiers</a>
+            <a href="{{ route('admin.scan') }}" class="hover:text-gold">Scan</a>
+        @endif
         <form method="POST" action="{{ route('logout') }}">@csrf<button class="hover:text-gold">Logout</button></form>
         @else <a href="{{ route('login') }}" class="hover:text-gold">Login</a><a href="{{ route('register') }}" class="rounded-full bg-gold px-4 py-2 font-semibold text-olive">Create Account</a> @endauth
     </nav>
 </header>
-<main class="mx-auto max-w-7xl px-6 pb-20">@if(session('success'))<div class="mb-6 rounded-xl border border-gold/40 bg-gold/10 p-4 text-gold">{{ session('success') }}</div>@endif @yield('content')</main>
+<main class="mx-auto max-w-7xl px-6 pb-20">@if(session('success'))<div class="mb-6 rounded-xl border border-gold/40 bg-gold/10 p-4 text-gold">{{ session('success') }}</div>@endif @if(session('info'))<div class="mb-6 rounded-xl border border-sky-400/40 bg-sky-400/10 p-4 text-sky-100">{{ session('info') }}</div>@endif @yield('content')</main>
 <footer class="border-t border-cream/10 px-6 py-8 text-center text-xs text-cream/50">© {{ date('Y') }} ASIARIGHT. All Rights Reserved.</footer>
 </body></html>

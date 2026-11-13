@@ -42,10 +42,7 @@
     <p class="landing-eyebrow">Sheila Saukia · Fashion Show · Jakarta</p>
     <h1 class="landing-title">Every journey has its season.<br><span>Every season has its bloom.</span></h1>
     <p class="landing-description">
-        A SSeason to Bloom merupakan perayaan perjalanan dan babak baru Sheila Saukia
-        melalui fashion show yang terinspirasi dari pertumbuhan serta keindahan bunga lotus.
-        Hadirkan pengalaman istimewa melalui koleksi busana pilihan, SS Bazaar, dan rangkaian
-        pertunjukan dalam suasana yang elegan.
+        {{ $event?->description ?: 'Discover the event and reserve your ticket for an unforgettable experience.' }}
     </p>
 
     <div class="landing-actions">
@@ -58,7 +55,7 @@
         @endauth
     </div>
 
-    <p class="landing-venue">Tennis Indoor Senayan · Jakarta</p>
-    <p class="landing-schedule">Event schedule: To Be Announced (WIB)</p>
+    @if($event?->venue)<p class="landing-venue">{{ $event->venue }}</p>@endif
+    <p class="landing-schedule">Event schedule: {{ $event?->event_starts_at?->timezone('Asia/Jakarta')->format('d F Y, H:i') . ' WIB' ?? 'To Be Announced (WIB)' }}</p>
 </section>
 @endsection
